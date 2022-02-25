@@ -18,6 +18,5 @@ function solution(dartResult) {
       answer[answer.length - 1] *= 2;
     } else if (dartResult[i] === "#") answer[answer.length - 1] *= -1;
   }
-
   return answer.reduce((acc, cur) => acc + cur, 0);
 }
