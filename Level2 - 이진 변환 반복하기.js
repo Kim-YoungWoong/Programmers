@@ -1,19 +1,14 @@
 function solution(s) {
-  let [cnt, remove] = [0, 0];
-  let n = 0;
-  let str = "";
-  while (s !== "1") {
-    [n, str] = Conversion(s);
-    remove += n;
-    s = str;
-    cnt++;
+  let answer = [0, 0];
+  let sLen = 0;
+
+  while (s.length > 1) {
+    sLen = s.length;
+    s = s.split("0").join("");
+    answer[0]++;
+    answer[1] += (sLen - s.length);
+    s = s.length.toString(2);
   }
 
-  return [cnt, remove];
-}
-
-function Conversion(s) {
-  let temp = s.split("0").join("");
-  let cnt = temp.length;
-  return [s.length - cnt, cnt.toString(2)];
+  return answer;
 }
